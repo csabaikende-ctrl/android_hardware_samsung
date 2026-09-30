@@ -12,6 +12,9 @@ cc_binary {
     cflags: select(soong_config_variable("samsungHealthVars", "charging_control_supports_bypass"), {
         false: [],
         default: ["-DHEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS"],
+    }) + select(soong_config_variable("samsungHealthVars", "charging_control_supports_limit"), {
+        true: ["-DHEALTH_CHARGING_CONTROL_SUPPORTS_LIMIT"],
+        default: [],
     }),
     srcs: [
         "service.cpp",
