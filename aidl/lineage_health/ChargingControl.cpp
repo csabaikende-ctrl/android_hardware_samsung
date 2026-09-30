@@ -67,8 +67,10 @@ ndk::ScopedAStatus ChargingControl::getSupportedMode(int* _aidl_return) {
     if (access(CHARGING_ENABLED_NODE, O_RDWR)) {
         LOG(ERROR) << "Can't access " << CHARGING_ENABLED_NODE << ": " << strerror(errno);
     } else {
-        *_aidl_return = static_cast<int>(ChargingControlSupportedMode::TOGGLE) |
-                        static_cast<int>(ChargingControlSupportedMode::BYPASS);
+        *_aidl_return = static_cast<int>(ChargingControlSupportedMode::TOGGLE);
+#ifdef HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS
+        *_aidl_return |= static_cast<int>(ChargingControlSupportedMode::BYPASS);
+#endif
     }
     return ndk::ScopedAStatus::ok();
 }
