@@ -20,8 +20,6 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
-import org.lineageos.internal.util.FileUtils;
-
 import java.util.List;
 
 public class MdnieService extends AccessibilityService {
