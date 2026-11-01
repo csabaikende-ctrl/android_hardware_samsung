@@ -10,8 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.lineageos.internal.util.FileUtils;
-
 public class BootCompletedReceiver extends BroadcastReceiver {
 
     private static final String TAG = "SamsungMdnie:Boot";
